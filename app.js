@@ -1,4 +1,6 @@
 const Twitter = require('twitter');
+
+console.log(process);
 const config = {
     consumer_key : process.env.consumer_key,
     consumer_secret : process.env.consumer_secret,
