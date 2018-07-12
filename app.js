@@ -10,7 +10,7 @@ const config = {
 const tweet =  new Twitter(config);
 
 const params = {
-    q: ['#octus','octus australia'],
+    q: '#octus',
     count: 10,
     result_type: 'recent',
     lang: 'en'
