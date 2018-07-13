@@ -32,6 +32,9 @@ tweet.get('search/tweets', params, function(err, data, response) {
       console.log(err);
     }
 })
-  
 
+var sentence = '@optus I am looking for a boardband plan'
+text = /(Boardband)|(PLAN)/i
+result= sentence.match(text); //sentence.search(/optus/i)
+console.log(result);
 
