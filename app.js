@@ -21,7 +21,7 @@ tweet.get('search/tweets', params, function(err, data, response) {
     if(!err){
 
         var filteredArr = data.statuses.filter(function(tweetObj){
-            return tweet.user.screen_name === "John25872967";
+            return tweetObj.user.screen_name === "John25872967";
 
         })
        console.log(filteredArr);
