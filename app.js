@@ -18,7 +18,10 @@ const params = {
 
 tweet.get('search/tweets', params, function(err, data, response) {
     if(!err){
-      console.log(data);
+    //   console.log(data);
+      for(i=0; i<data.statuses.length;i++) {
+        console.log(data.statuses.entities);
+      }
     } else {
       console.log(err);
     }
