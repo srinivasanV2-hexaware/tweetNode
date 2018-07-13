@@ -25,7 +25,7 @@ tweet.get('search/tweets', params, function(err, data, response) {
       }
 
       var filteredArr = data.statuses.filter(function(tweetObj){
-        return tweetObj.user.screen_name === "peer5";
+        return tweetObj.user.screen_name === "trebornitrof";
       });
       console.log(filteredArr);
     } else {
