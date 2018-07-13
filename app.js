@@ -13,14 +13,15 @@ const params = {
     q: '"#optus" OR "optus australia"',
     count: 10,
     result_type: 'recent',
-    lang: 'en'
+    lang: 'en',
+    tweet_mode : 'extended'
 }
 
 tweet.get('search/tweets', params, function(err, data, response) {
     if(!err){
     //   console.log(data);
       for(i=0; i<data.statuses.length;i++) {
-        console.log(data.statuses[i].entities);
+        console.log(data.statuses[i].text);
       }
     } else {
       console.log(err);
