@@ -24,10 +24,14 @@ tweet.get('search/tweets', params, function(err, data, response) {
         console.log(data.statuses[i]);
       }
 
-      var filteredArr = data.statuses.filter(function(tweetObj){
+      var filteredTweetArr = data.statuses.filter(function(tweetObj){
         return tweetObj.user.screen_name === "trebornitrof";
       });
-      console.log(filteredArr);
+      console.log(filteredTweetArr);
+
+      filteredTweetArr.forEach(element => {
+          console.log(element);
+      });
     } else {
       console.log(err);
     }
@@ -35,6 +39,6 @@ tweet.get('search/tweets', params, function(err, data, response) {
 
 var sentence = '@optus I am looking for a boardband plan'
 text = /(Boardband)|(PLAN)/i
-result= sentence.match(text); //sentence.search(/optus/i)
+result= sentence.search(/(change) | (PLAN)/i) //sentence.match(text); 
 console.log(result);
 
