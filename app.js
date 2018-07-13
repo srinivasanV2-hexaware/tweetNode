@@ -30,6 +30,7 @@ tweet.get('search/tweets', params, function(err, data, response) {
       console.log(filteredTweetArr);
 
       filteredTweetArr.forEach(element => {
+          console.log(1);
           console.log(element);
       });
     } else {
