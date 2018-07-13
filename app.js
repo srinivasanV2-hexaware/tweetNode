@@ -19,15 +19,15 @@ const params = {
 
 tweet.get('search/tweets', params, function(err, data, response) {
     if(!err){
-
-        var filteredArr = data.statuses.filter(function(tweetObj){
-            return tweetObj.user.screen_name === "peer5";
-
-        })
-       console.log(filteredArr);
+        
       for(i=0; i<data.statuses.length;i++) {
-        console.log(data.statuses[i].full_text);
+        console.log(data.statuses[i]);
       }
+
+      var filteredArr = data.statuses.filter(function(tweetObj){
+        return tweetObj.user.screen_name === "peer5";
+      });
+      console.log(filteredArr);
     } else {
       console.log(err);
     }
