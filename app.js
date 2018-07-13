@@ -30,16 +30,20 @@ tweet.get('search/tweets', params, function(err, data, response) {
       console.log(filteredTweetArr);
 
       filteredTweetArr.forEach(element => {
-          console.log(1);
-          console.log(element);
+        var sentence = element.full_text;
+        var text = /(Optus)|(Boardband)|(PLAN)/i;
+        var validTweetChkIndex = sentence.search(text);
+        if(validTweetChkIndex !== -1) {
+            console.log(sentence);
+        }
       });
     } else {
       console.log(err);
     }
 })
 
-var sentence = '@optus I am looking for a boardband plan'
-text = /(Boardband)|(PLAN)/i
-result= sentence.search(/(change) | (PLAN)/i) //sentence.match(text); 
-console.log(result);
+// var sentence = '@optus I am looking for a boardband plan'
+// text = /(Boardband)|(PLAN)/i
+// result= sentence.search(/(change) | (PLAN)/i) //sentence.match(text); 
+// console.log(result);
 
