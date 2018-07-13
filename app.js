@@ -1,4 +1,5 @@
 const Twitter = require('twitter');
+const Sentiment = require('sentiment');
 
 const config = {
     consumer_key : process.env.consumer_key,
@@ -8,6 +9,7 @@ const config = {
 };
 
 const tweet =  new Twitter(config);
+const sentiment = new Sentiment();
 
 const params = {
     q: '"#optus" OR "OPTUS" OR "Optus" ',
@@ -17,6 +19,7 @@ const params = {
     tweet_mode : 'extended'
 }
 
+var finalTweet = [];
 tweet.get('search/tweets', params, function(err, data, response) {
     if(!err){
         
@@ -30,13 +33,21 @@ tweet.get('search/tweets', params, function(err, data, response) {
       console.log(filteredTweetArr);
 
       filteredTweetArr.forEach(element => {
+
         var sentence = element.full_text;
         var text = /(Optus)|(Boardband)|(PLAN)/i;
         var validTweetChkIndex = sentence.search(text);
         if(validTweetChkIndex !== -1) {
-            console.log(sentence);
+            finalTweet.push({
+                'userID': 'trebornitrof',
+                'text': sentence,
+                'keyword': 'Boardband',
+                'sentimentScore' : sentiment.analyze(sentence)
+            });
         }
       });
+
+      console.log(finalTweet);
     } else {
       console.log(err);
     }
