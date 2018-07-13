@@ -21,7 +21,7 @@ tweet.get('search/tweets', params, function(err, data, response) {
     if(!err){
     //   console.log(data);
       for(i=0; i<data.statuses.length;i++) {
-        console.log(data.statuses[i].text);
+        console.log(data.statuses[i]);
       }
     } else {
       console.log(err);
