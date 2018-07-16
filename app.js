@@ -28,7 +28,7 @@ tweet.get('search/tweets', params, function(err, data, response) {
       }
 
       var filteredTweetArr = data.statuses.filter(function(tweetObj){
-        return tweetObj.user.screen_name === "JordanPolitics";
+        return tweetObj.user.screen_name === "Iamcharlotte7";
       });
       console.log(filteredTweetArr);
 
@@ -39,7 +39,7 @@ tweet.get('search/tweets', params, function(err, data, response) {
         var validTweetChkIndex = sentence.search(text);
         if(validTweetChkIndex !== -1) {
             finalTweet.push({
-                'userID': 'JordanPolitics',
+                'userID': 'Iamcharlotte7',
                 'text': sentence,
                 'keyword': 'Boardband',
                 'sentimentScore' : sentiment.analyze(sentence)
